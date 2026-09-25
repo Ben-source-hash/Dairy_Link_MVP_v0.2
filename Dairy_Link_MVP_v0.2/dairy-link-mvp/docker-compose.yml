@@ -1,0 +1,15 @@
+services:
+  db:
+    image: postgres:16
+    container_name: dairy-link-db
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: dairy_link
+      POSTGRES_USER: dairy
+      POSTGRES_PASSWORD: dairy_dev_password
+    ports:
+      - "5432:5432"
+    volumes:
+      - dairy_link_pgdata:/var/lib/postgresql/data
+volumes:
+  dairy_link_pgdata:
